@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.cora.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="org.cora.model.User">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <delete id="delete" parameterType="org.cora.model.User">
+    delete from user
+    where mobile = #{mobile,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </delete>
+
+    <insert id="insert" parameterType="org.cora.model.User" useGeneratedKeys="true">
+    insert into user (mobile, password,
+      create_time, update_time)
+    values (#{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+
+    <update id="update" parameterType="org.cora.model.User">
+    update user
+    set password = #{pwd,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where mobile = #{mobile,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </update>
+
+    <select id="select" parameterType="org.cora.model.User" resultMap="BaseResultMap">
+    select id, mobile, password, create_time, update_time
+    from user
+    where mobile = #{mobile,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </select>
+
+</mapper>
