@@ -1,8 +1,6 @@
 package org.cora.util;
 
-import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
 import org.cora.constant.ResponseJson;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
