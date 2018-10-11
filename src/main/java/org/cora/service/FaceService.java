@@ -92,9 +92,11 @@ public class FaceService {
         try {
             String fullPath = FileUtils.saveFile(file, "img/faceOutline.jpg", request);
 
+            HashMap<String, String> map = FaceApiConstants.API_MAP;
+            map.put(FaceApiConstants.RETURN_LANDMARK, "2");
             HashMap<String, byte[]> fileMap = new HashMap<>(2);
             fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(new File(fullPath)));
-            byte[] bytes = FaceApiUtils.post(FaceApiConstants.FACE_DETECT_URL, FaceApiConstants.API_MAP, fileMap);
+            byte[] bytes = FaceApiUtils.post(FaceApiConstants.FACE_DETECT_URL, map, fileMap);
             JSONObject responseJo = JSON.parseObject(new String(bytes));
             if (StringUtils.isNotBlank(responseJo.getString(FaceApiConstants.ERROR_MESSAGE))) {
                 responseJo.putAll(ResponseJson.FAIL.toJSONObject());
