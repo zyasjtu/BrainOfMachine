@@ -9,16 +9,15 @@ import org.cora.constant.FaceApiConstants;
 import org.cora.constant.ResponseJson;
 import org.cora.util.FaceApiUtils;
 import org.cora.util.FileUtils;
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.highgui.Highgui;
+import org.cora.util.ImageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,9 +35,10 @@ public class VehicleService {
     public JSONObject recognizePlate(MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
         try {
             String fullPath = FileUtils.saveFile(file, "img/plateRecognize.jpg", request);
+            File f = new File(fullPath);
 
             HashMap<String, byte[]> fileMap = new HashMap<>(2);
-            fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(new File(fullPath)));
+            fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(f));
             byte[] bytes = FaceApiUtils.post(FaceApiConstants.PLATE_RECOGNIZE_URL, FaceApiConstants.API_MAP, fileMap);
             JSONObject responseJo = JSON.parseObject(new String(bytes));
             if (StringUtils.isNotBlank(responseJo.getString(FaceApiConstants.ERROR_MESSAGE))) {
@@ -46,8 +46,8 @@ public class VehicleService {
                 return responseJo;
             }
 
-            System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-            Mat img = Highgui.imread(fullPath);
+            BufferedImage bufferedImage = ImageIO.read(f);
+            Graphics2D graphics = ImageUtils.getDefaultGraphics2D(bufferedImage);
             JSONArray plates = responseJo.getJSONArray(FaceApiConstants.RESULTS);
             for (Integer i = 0; i < plates.size(); i++) {
                 String number = plates.getJSONObject(i).getString(FaceApiConstants.PLATE_NUMBER);
@@ -65,12 +65,12 @@ public class VehicleService {
                     yMax = Math.max(yMax, location.getInteger(FaceApiConstants.Y));
                 }
 
-                Core.rectangle(img, new Point(xMin, yMin), new Point(xMax, yMax), new Scalar(0, 0, 255), 2);
-                Core.putText(img, number, new Point(xMin, yMin - 5), 0, 1, new Scalar(0, 0, 255), 2);
+                graphics.drawRect(xMin, yMin, xMax - xMin, yMax - yMin);
+                graphics.drawString(number, xMin, yMin - 5);
             }
 
-            Highgui.imwrite(fullPath, img);
-            response.sendRedirect("../upload/" + fullPath.substring(fullPath.lastIndexOf('/') + 1));
+            ImageUtils.write(bufferedImage, fullPath);
+            response.sendRedirect("../upload/" + fullPath.substring(fullPath.lastIndexOf(FileUtils.DEFAULT_PATH_SEPARATOR) + 1));
 
             responseJo.putAll(ResponseJson.SUCCESS.toJSONObject());
             return responseJo;

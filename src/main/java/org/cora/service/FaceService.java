@@ -9,6 +9,7 @@ import org.cora.constant.FaceApiConstants;
 import org.cora.constant.ResponseJson;
 import org.cora.util.FaceApiUtils;
 import org.cora.util.FileUtils;
+import org.cora.util.ImageUtils;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
@@ -18,8 +19,11 @@ import org.opencv.highgui.Highgui;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,9 +52,10 @@ public class FaceService {
     public JSONObject detect(MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
         try {
             String fullPath = FileUtils.saveFile(file, "img/faceDetect.jpg", request);
+            File f = new File(fullPath);
 
             HashMap<String, byte[]> fileMap = new HashMap<>(2);
-            fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(new File(fullPath)));
+            fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(f));
             byte[] bytes = FaceApiUtils.post(FaceApiConstants.FACE_DETECT_URL, FaceApiConstants.API_MAP, fileMap);
             JSONObject responseJo = JSON.parseObject(new String(bytes));
             if (StringUtils.isNotBlank(responseJo.getString(FaceApiConstants.ERROR_MESSAGE))) {
@@ -58,21 +63,22 @@ public class FaceService {
                 return responseJo;
             }
 
+            BufferedImage bufferedImage = ImageIO.read(f);
+            Graphics2D graphics = ImageUtils.getDefaultGraphics2D(bufferedImage);
             JSONArray faces = responseJo.getJSONArray(FaceApiConstants.FACES);
-            System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-            Mat img = Highgui.imread(fullPath);
             for (int i = 0; i < faces.size(); i++) {
                 JSONObject face = faces.getJSONObject(i);
                 Double top = face.getJSONObject(FaceApiConstants.FACE_RECTANGLE).getDouble(FaceApiConstants.TOP);
                 Double left = face.getJSONObject(FaceApiConstants.FACE_RECTANGLE).getDouble(FaceApiConstants.LEFT);
                 Double width = face.getJSONObject(FaceApiConstants.FACE_RECTANGLE).getDouble(FaceApiConstants.WIDTH);
                 Double height = face.getJSONObject(FaceApiConstants.FACE_RECTANGLE).getDouble(FaceApiConstants.HEIGHT);
-                Core.rectangle(img, new Point(left, top), new Point(left + width, top + height), new Scalar(0, 0, 255), 2);
+                graphics.drawRect(left.intValue(), top.intValue(), width.intValue(), height.intValue());
             }
-            Highgui.imwrite(fullPath, img);
+
+            ImageUtils.write(bufferedImage, fullPath);
+            response.sendRedirect("../upload/" + fullPath.substring(fullPath.lastIndexOf(FileUtils.DEFAULT_PATH_SEPARATOR) + 1));
 
             responseJo.putAll(ResponseJson.SUCCESS.toJSONObject());
-            response.sendRedirect("../upload/" + fullPath.substring(fullPath.lastIndexOf('/') + 1));
             return responseJo;
         } catch (Exception e) {
             LOGGER.error("detect face exception! ", e);
@@ -91,11 +97,12 @@ public class FaceService {
     public JSONObject analyze(MultipartFile file, HttpServletRequest request, HttpServletResponse response) {
         try {
             String fullPath = FileUtils.saveFile(file, "img/faceOutline.jpg", request);
+            File f = new File(fullPath);
 
             HashMap<String, String> map = FaceApiConstants.API_MAP;
             map.put(FaceApiConstants.RETURN_LANDMARK, "2");
             HashMap<String, byte[]> fileMap = new HashMap<>(2);
-            fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(new File(fullPath)));
+            fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(f));
             byte[] bytes = FaceApiUtils.post(FaceApiConstants.FACE_DETECT_URL, map, fileMap);
             JSONObject responseJo = JSON.parseObject(new String(bytes));
             if (StringUtils.isNotBlank(responseJo.getString(FaceApiConstants.ERROR_MESSAGE))) {
@@ -103,22 +110,21 @@ public class FaceService {
                 return responseJo;
             }
 
+            BufferedImage bufferedImage = ImageIO.read(f);
+            Graphics2D graphics = ImageUtils.getDefaultGraphics2D(bufferedImage);
             JSONArray faces = responseJo.getJSONArray(FaceApiConstants.FACES);
-            System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-            Mat img = Highgui.imread(fullPath);
-
             for (int i = 0; i < faces.size(); i++) {
                 JSONObject landmark = faces.getJSONObject(i).getJSONObject(FaceApiConstants.LANDMARK);
                 for (Map.Entry<String, Object> entry : landmark.entrySet()) {
                     JSONObject pt = (JSONObject) entry.getValue();
-                    Core.circle(img, new Point(pt.getInteger(FaceApiConstants.X), pt.getInteger(FaceApiConstants.Y)),
-                            2, new Scalar(0, 0, 255), 1);
+                    graphics.drawRect(pt.getInteger(FaceApiConstants.X), pt.getInteger(FaceApiConstants.Y), 2, 2);
                 }
             }
-            Highgui.imwrite(fullPath, img);
+
+            ImageUtils.write(bufferedImage, fullPath);
+            response.sendRedirect("../upload/" + fullPath.substring(fullPath.lastIndexOf(FileUtils.DEFAULT_PATH_SEPARATOR) + 1));
 
             responseJo.putAll(ResponseJson.SUCCESS.toJSONObject());
-            response.sendRedirect("../upload/" + fullPath.substring(fullPath.lastIndexOf('/') + 1));
             return responseJo;
         } catch (Exception e) {
             LOGGER.error("analyze face exception! ", e);

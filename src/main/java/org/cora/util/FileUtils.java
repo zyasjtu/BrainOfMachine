@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-
-import static org.springframework.core.io.support.LocalizedResourceHelper.DEFAULT_SEPARATOR;
+import java.util.UUID;
 
 /**
  * @author Colin
@@ -20,7 +19,9 @@ public class FileUtils {
     private FileUtils() {
     }
 
-    public static void saveFile(MultipartFile file, String path) throws IOException {
+    public static final String DEFAULT_PATH_SEPARATOR = "/";
+
+    private static void saveFile(MultipartFile file, String path) throws IOException {
         if (!file.isEmpty()) {
             file.transferTo(new File(path));
         } else {
@@ -31,13 +32,12 @@ public class FileUtils {
     public static String saveFile(MultipartFile file, String defaultFileRelativePath,
                                   HttpServletRequest request) throws IOException {
         String bathPath = request.getSession().getServletContext().getRealPath("/");
-        String fileName = request.getSession().getId().concat(DEFAULT_SEPARATOR).concat(file.getOriginalFilename());
+        String fileName = UUID.randomUUID().toString() + "." + ImageUtils.DEFAULT_IMAGE_FORMAT;
         if (file.isEmpty()) {
             File f = new File(bathPath + defaultFileRelativePath);
             try (FileInputStream inputStream = new FileInputStream(f)) {
                 file = new MockMultipartFile(f.getName(), inputStream);
             }
-            fileName = request.getSession().getId().concat(DEFAULT_SEPARATOR).concat(file.getName());
         }
         String fullPath = bathPath + "upload/" + fileName;
         FileUtils.saveFile(file, fullPath);
