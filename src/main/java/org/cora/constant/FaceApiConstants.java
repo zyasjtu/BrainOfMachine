@@ -48,6 +48,29 @@ public class FaceApiConstants {
     public static final String HUMAN_BODY_RECTANGLE = "humanbody_rectangle";
     public static final String BODY_RECTANGLE = "body_rectangle";
     public static final String SKELETONS = "skeletons";
+    public static final String BANK_CARDS = "bank_cards";
+    public static final String NUMBER = "number";
+    public static final String BANK = "bank";
+    public static final String ORGANIZATION = "organization";
+    public static final String RIGHT_BOTTOM = "right_bottom";
+    public static final String LEFT_BOTTOM = "left_bottom";
+    public static final String RIGHT_TOP = "right_top";
+    public static final String LEFT_TOP = "left_top";
+    public static final String CARDS = "cards";
+    public static final String BIRTHDAY = "birthday";
+    public static final String ADDRESS = "address";
+    public static final String GENDER = "gender";
+    public static final String RACE = "race";
+    public static final String NAME = "name";
+    public static final String ID_CARD_NUMBER = "id_card_number";
+    public static final String ATTRIBUTES = "attributes";
+    public static final String MALE = "male";
+    public static final String FEMALE = "female";
+    public static final String UPPER_BODY_CLOTH = "upper_body_cloth";
+    public static final String UPPER_BODY_CLOTH_COLOR = "upper_body_cloth_color";
+    public static final String LOWER_BODY_CLOTH = "lower_body_cloth";
+    public static final String LOWER_BODY_CLOTH_COLOR = "lower_body_cloth_color";
+    public static final String WHITE = "white";
 
     private FaceApiConstants() {
     }

@@ -129,8 +129,31 @@ public class BodyService {
 
             BufferedImage bufferedImage = ImageIO.read(f);
             Graphics2D graphics = ImageUtils.getDefaultGraphics2D(bufferedImage);
+            JSONArray bodyList = responseJo.getJSONArray(FaceApiConstants.HUMAN_BODIES);
+            for (Integer i = 0; i < bodyList.size(); i++) {
+                JSONObject rectangle = bodyList.getJSONObject(i).getJSONObject(FaceApiConstants.HUMAN_BODY_RECTANGLE);
+                Integer top = rectangle.getInteger(FaceApiConstants.TOP);
+                Integer left = rectangle.getInteger(FaceApiConstants.LEFT);
+                Integer width = rectangle.getInteger(FaceApiConstants.WIDTH);
+                Integer height = rectangle.getInteger(FaceApiConstants.HEIGHT);
+
+                JSONObject attributes = bodyList.getJSONObject(i).getJSONObject(FaceApiConstants.ATTRIBUTES);
+                String gender = attributes.getJSONObject(FaceApiConstants.GENDER).getDouble(FaceApiConstants.MALE).
+                        compareTo(attributes.getJSONObject(FaceApiConstants.GENDER).getDouble(FaceApiConstants.FEMALE))
+                        > 0 ? "男" : "女";
+                String upperColor = attributes.getJSONObject(FaceApiConstants.UPPER_BODY_CLOTH).
+                        getString(FaceApiConstants.UPPER_BODY_CLOTH_COLOR).equals(FaceApiConstants.WHITE) ? "浅色" : "深色";
+                String lowerColor = attributes.getJSONObject(FaceApiConstants.LOWER_BODY_CLOTH).
+                        getString(FaceApiConstants.LOWER_BODY_CLOTH_COLOR).equals(FaceApiConstants.WHITE) ? "浅色" : "深色";
+
+                graphics.drawRect(left, top, width, height);
+                graphics.drawString("上衣" + upperColor, left + 5, top + 20);
+                graphics.drawString("下装" + lowerColor, left + 5, top + height - 5);
+                graphics.drawString(gender, left + 5, top + height / 2 + 5);
+            }
 
             ImageUtils.write(bufferedImage, fullPath);
+            response.sendRedirect("../upload/" + fullPath.substring(fullPath.lastIndexOf(FileUtils.DEFAULT_PATH_SEPARATOR) + 1));
 
             responseJo.putAll(ResponseJson.SUCCESS.toJSONObject());
             return responseJo;
