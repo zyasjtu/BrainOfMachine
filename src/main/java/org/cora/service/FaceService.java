@@ -91,7 +91,7 @@ public class FaceService {
             String fullPath = FileUtils.saveFile(file, "img/faceOutline.jpg", request);
             File f = new File(fullPath);
 
-            HashMap<String, String> map = FaceApiConstants.API_MAP;
+            HashMap<String, String> map = new HashMap<>(FaceApiConstants.API_MAP);
             map.put(FaceApiConstants.RETURN_LANDMARK, "2");
             HashMap<String, byte[]> fileMap = new HashMap<>(2);
             fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(f));

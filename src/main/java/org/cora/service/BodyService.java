@@ -116,7 +116,7 @@ public class BodyService {
             String fullPath = FileUtils.saveFile(file, "img/bodyRecognize.jpg", request);
             File f = new File(fullPath);
 
-            HashMap<String, String> map = FaceApiConstants.API_MAP;
+            HashMap<String, String> map = new HashMap<>(FaceApiConstants.API_MAP);
             map.put(FaceApiConstants.RETURN_ATTRIBUTES, "gender,upper_body_cloth,lower_body_cloth");
             HashMap<String, byte[]> fileMap = new HashMap<>(2);
             fileMap.put(FaceApiConstants.IMAGE_FILE, FaceApiUtils.getBytesFromFile(f));
