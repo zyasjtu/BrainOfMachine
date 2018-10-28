@@ -51,7 +51,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">关于我们 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">由上交、清华硕博组建的团队</a></li>
+                                <li><a href="#">由上交/清华硕博组建的团队</a></li>
                                 <li><a href="#">专注提供计算机视觉解决方案</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li class="dropdown-header">联系方式</li>
@@ -83,11 +83,14 @@
                  alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>快速验证</h1>
+                    <h1>联系我们</h1>
                     <p>Quick Verify</p>
                     <p>无需掌握Machine Learning/Deep
                         Learning知识，无需配置Caffe/Tensorflow等框架环境，无需搭建引擎服务平台，只需一键提交固定格式的图像数据，即可立即验证您期望的结果。</p>
-                    <p><a class="btn btn-lg btn-primary" href="#tryNow" role="button">立即验证</a></p>
+                    <p><a class="btn btn-lg btn-primary"
+                          onclick="alert('\n由上交/清华硕博组建的团队\n专注提供计算机视觉解决方案\n\nQQ:1172446959\nE-Mail:1172446959@qq.com')"
+                          role="button">联系我们</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -99,7 +102,7 @@
                 <div class="carousel-caption">
                     <h1>免费范围</h1>
                     <p>Range of Free</p>
-                    <p>人脸位置检测、人脸特征点分析、人脸1:1比对、车辆检测、车牌检测等功能提供免费体验。免费功能不保证并发，不提供存储，算法质量与速度一般。</p>
+                    <p>通用文本识别、银行卡识别、身份证识别等功能提供免费体验。免费功能不保证并发，不提供存储，且带宽受限，免费功能算法质量与速度一般。</p>
                     <p><a class="btn btn-lg btn-primary" href="#tryNow" role="button">立刻体验</a></p>
                 </div>
             </div>
@@ -112,8 +115,10 @@
                 <div class="carousel-caption">
                     <h1>收费范围</h1>
                     <p>Range of Fees</p>
-                    <p>除免费功能外，车牌识别、OCR/手写字体识别、图像识别/场景理解、单目标/多目标跟踪等功能提供付费服务，付费功能保证并发，提供存储，算法质量与速度已经过多轮优化。</p>
-                    <p><a class="btn btn-lg btn-primary" href="#contactUs" role="button">联系我们</a></p>
+                    <p>除免费功能外，行驶证识别、驾驶证识别、手写字体识别等功能提供付费服务，付费功能保证并发，提供存储，算法质量与速度已经过多轮优化。</p>
+                    <p><a class="btn btn-lg btn-primary"
+                          onclick="alert('\n由上交/清华硕博组建的团队\n专注提供计算机视觉解决方案\n\nQQ:1172446959\nE-Mail:1172446959@qq.com')"
+                          role="button">联系我们</a></p>
                 </div>
             </div>
         </div>
@@ -139,13 +144,15 @@
         <div class="col-md-7">
             <h2 class="featurette-heading">通用文字OCR<span class="text-muted"></span></h2>
             <p class="lead">免费功能不保证并发，不提供存储，且带宽受限。
-                <br>体验更优质和更快速的算法，请<a onclick="alert('联系方式\nQQ:1172446959\nE-Mail:1172446959@qq.com')">联系我们！</a></p>
+                <br>体验更优质和更快速的算法，请<a
+                        onclick="alert('\n由上交/清华硕博组建的团队\n专注提供计算机视觉解决方案\n\nQQ:1172446959\nE-Mail:1172446959@qq.com')">联系我们！</a>
+            </p>
 
             <form action="ocrText.json" method="post" enctype="multipart/form-data">
                 <p style="font-size: medium">选择文本图像：（不选默认使用<a href="../img/textOcr.jpg">TextOCR.jpg</a>）</p>
                 <p><input type="file" name="file"></p>
-                <p><input type="submit" value="提交">&nbsp;&nbsp;图像大小<1M，尺寸<1000x1000，大文件可能造成网络传输拥堵，发生未知错误。</p>
-                <!--<p style="color: crimson"><b><i>试用人数过多，功能已暂时关闭，联系我们提供免费demo！</i></b></p>-->
+                <p><input type="submit" value="提交" disabled>&nbsp;&nbsp;图像大小<1M，尺寸<1000x1000，大文件可能造成网络传输拥堵，发生未知错误。</p>
+                <p style="color: crimson"><b><i>试用人数过多，该功能已暂时关闭，联系我们提供免费demo！</i></b></p>
             </form>
 
         </div>
@@ -163,13 +170,14 @@
         <div class="col-md-7">
             <h2 class="featurette-heading">银行卡识别<span class="text-muted"></span></h2>
             <p class="lead">免费功能不保证并发，不提供存储，且带宽受限。
-                <br>体验更优质和更快速的算法，请<a onclick="alert('联系方式\nQQ:1172446959\nE-Mail:1172446959@qq.com')">联系我们！</a></p>
+                <br>体验更优质和更快速的算法，请<a
+                        onclick="alert('\n由上交/清华硕博组建的团队\n专注提供计算机视觉解决方案\n\nQQ:1172446959\nE-Mail:1172446959@qq.com')">联系我们！</a>
+            </p>
 
             <form action="ocrBankCard.json" method="post" enctype="multipart/form-data">
                 <p style="font-size: medium">选择卡片图像：（不选默认使用<a href="../img/bankCardOcr.jpg">BankCardOcr.jpg</a>）</p>
                 <p><input type="file" name="file"></p>
                 <p><input type="submit" value="提交">&nbsp;&nbsp;图像大小<1M，尺寸<1000x1000，大文件可能造成网络传输拥堵，发生未知错误。</p>
-                <!--<p style="color: crimson"><b><i>试用人数过多，功能已暂时关闭，联系我们提供免费demo！</i></b></p>-->
             </form>
 
         </div>
@@ -187,13 +195,14 @@
         <div class="col-md-7">
             <h2 class="featurette-heading">身份证识别<span class="text-muted"></span></h2>
             <p class="lead">免费功能不保证并发，不提供存储，且带宽受限。
-                <br>体验更优质和更快速的算法，请<a onclick="alert('联系方式\nQQ:1172446959\nE-Mail:1172446959@qq.com')">联系我们！</a></p>
+                <br>体验更优质和更快速的算法，请<a
+                        onclick="alert('\n由上交/清华硕博组建的团队\n专注提供计算机视觉解决方案\n\nQQ:1172446959\nE-Mail:1172446959@qq.com')">联系我们！</a>
+            </p>
 
             <form action="ocrIdCard.json" method="post" enctype="multipart/form-data">
                 <p style="font-size: medium">选择证件图像：（不选默认使用<a href="../img/idCardOcr.jpg">IdCardOcr.jpg</a>）</p>
                 <p><input type="file" name="file"></p>
                 <p><input type="submit" value="提交">&nbsp;&nbsp;图像大小<1M，尺寸<1000x1000，大文件可能造成网络传输拥堵，发生未知错误。</p>
-                <!--<p style="color: crimson"><b><i>试用人数过多，功能已暂时关闭，联系我们提供免费demo！</i></b></p>-->
             </form>
 
         </div>
@@ -213,7 +222,10 @@
     <!-- FOOTER -->
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p id="contactUs">&copy; 2017 BrainOfMachine, Inc. &middot; <a href="#">QQ:1172446959</a> &middot; <a href="#">E-Mail:1172446959@qq.com</a>
+        <p id="contactUs">&copy; 2017 BrainOfMachine, Inc. &middot;
+            <a onclick="alert('\n由上交/清华硕博组建的团队\n专注提供计算机视觉解决方案\n\nQQ:1172446959\nE-Mail:1172446959@qq.com')">QQ:1172446959</a>
+            &middot;
+            <a onclick="alert('\n由上交/清华硕博组建的团队\n专注提供计算机视觉解决方案\n\nQQ:1172446959\nE-Mail:1172446959@qq.com')">E-Mail:1172446959@qq.com</a>
         </p>
     </footer>
 </div><!-- /.container -->

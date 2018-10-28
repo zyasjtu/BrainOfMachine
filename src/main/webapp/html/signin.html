@@ -1,177 +1,177 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<!--<!DOCTYPE html>-->
+<!--<html lang="zh-CN">-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--&lt;!&ndash; 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ &ndash;&gt;-->
+<!--<meta name="description" content="">-->
+<!--<meta name="author" content="">-->
+<!--<link rel="icon" href="../../favicon.ico">-->
 
-    <title>登录/注册</title>
+<!--<title>登录/注册</title>-->
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<!--&lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->
+<!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!--&lt;!&ndash; HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries &ndash;&gt;-->
+<!--&lt;!&ndash;[if lt IE 9]>-->
+<!--<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+<!--<![endif]&ndash;&gt;-->
 
-    <!-- Custom styles for this template -->
-    <link href="/css/signin.css" rel="stylesheet">
-</head>
+<!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+<!--<link href="/css/signin.css" rel="stylesheet">-->
+<!--</head>-->
 
-<body>
+<!--<body>-->
 
-<div class="container">
+<!--<div class="container">-->
 
-    <form class="form-signin">
-        <h2 class="form-signin-heading">登录</h2>
-        <label for="signinEmail" class="sr-only">邮箱</label>
-        <input type="email" id="signinEmail" class="form-control" placeholder="邮箱" required="" autofocus="">
-        <label for="signinPassword" class="sr-only">密码</label>
-        <input type="password" id="signinPassword" class="form-control" placeholder="密码" required="">
-        <!--<div class="checkbox">-->
-        <!--<label>-->
-        <!--<input type="checkbox" value="remember-me"> Remember me-->
-        <!--</label>-->
-        <!--</div>-->
-        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="signInCheck()">登录</button>
-    </form>
+<!--<form class="form-signin">-->
+<!--<h2 class="form-signin-heading">登录</h2>-->
+<!--<label for="signinEmail" class="sr-only">邮箱</label>-->
+<!--<input type="email" id="signinEmail" class="form-control" placeholder="邮箱" required="" autofocus="">-->
+<!--<label for="signinPassword" class="sr-only">密码</label>-->
+<!--<input type="password" id="signinPassword" class="form-control" placeholder="密码" required="">-->
+<!--&lt;!&ndash;<div class="checkbox">&ndash;&gt;-->
+<!--&lt;!&ndash;<label>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="checkbox" value="remember-me"> Remember me&ndash;&gt;-->
+<!--&lt;!&ndash;</label>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<button class="btn btn-lg btn-primary btn-block" type="button" onclick="signInCheck()">登录</button>-->
+<!--</form>-->
 
-    <hr class="featurette-divider">
+<!--<hr class="featurette-divider">-->
 
-    <form class="form-signin">
-        <h2 class="form-signin-heading">注册</h2>
-        <label for="signupEmail" class="sr-only">邮箱</label>
-        <input type="email" id="signupEmail" class="form-control" placeholder="邮箱" required="" autofocus="">
-        <label for="signupPassword1" class="sr-only">密码</label>
-        <input type="password" id="signupPassword1" class="form-control" placeholder="密码" required="">
-        <label for="signupPassword2" class="sr-only">重复密码</label>
-        <input type="password" id="signupPassword2" class="form-control" placeholder="重复密码" required="">
-        <label for="signupVerifycode" class="sr-only">验证码</label>
-        <input type="plaintext" id="signupVerifycode" class="form-control" placeholder="验证码" required="">
-        <a onclick="changeVerifyCode()">更换验证码</a> <img src="./static/verifyCode.jpg" width="40"
-                                                       height="20"
-                                                       align="right" id="verifyCode">
-        <!--<div class="checkbox">-->
-        <!--<label>-->
-        <!--<input type="checkbox" value="remember-me"> Remember me-->
-        <!--</label>-->
-        <!--</div>-->
-        <button class="btn btn-lg btn-primary btn-block" type="button" style="margin-top: 10px" onclick="signUpCheck()">
-            注册
-        </button>
-    </form>
+<!--<form class="form-signin">-->
+<!--<h2 class="form-signin-heading">注册</h2>-->
+<!--<label for="signupEmail" class="sr-only">邮箱</label>-->
+<!--<input type="email" id="signupEmail" class="form-control" placeholder="邮箱" required="" autofocus="">-->
+<!--<label for="signupPassword1" class="sr-only">密码</label>-->
+<!--<input type="password" id="signupPassword1" class="form-control" placeholder="密码" required="">-->
+<!--<label for="signupPassword2" class="sr-only">重复密码</label>-->
+<!--<input type="password" id="signupPassword2" class="form-control" placeholder="重复密码" required="">-->
+<!--<label for="signupVerifycode" class="sr-only">验证码</label>-->
+<!--<input type="plaintext" id="signupVerifycode" class="form-control" placeholder="验证码" required="">-->
+<!--<a onclick="changeVerifyCode()">更换验证码</a> <img src="./static/verifyCode.jpg" width="40"-->
+<!--height="20"-->
+<!--align="right" id="verifyCode">-->
+<!--&lt;!&ndash;<div class="checkbox">&ndash;&gt;-->
+<!--&lt;!&ndash;<label>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="checkbox" value="remember-me"> Remember me&ndash;&gt;-->
+<!--&lt;!&ndash;</label>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<button class="btn btn-lg btn-primary btn-block" type="button" style="margin-top: 10px" onclick="signUpCheck()">-->
+<!--注册-->
+<!--</button>-->
+<!--</form>-->
 
-</div> <!-- /container -->
+<!--</div> &lt;!&ndash; /container &ndash;&gt;-->
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="./static/JSEncrypt.js"></script>
+<!--&lt;!&ndash; Bootstrap core JavaScript-->
+<!--================================================== &ndash;&gt;-->
+<!--&lt;!&ndash; Placed at the end of the document so the pages load faster &ndash;&gt;-->
+<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+<!--<script src="./static/JSEncrypt.js"></script>-->
 
-<script>
-    function signInCheck() {
-        var signInEmail = $("#signinEmail").val();
-        var signInPassword = $("#signinPassword").val();
-        if (signInEmail === "" || signInPassword === "") {
-            alert("邮箱/密码不能为空！");
-            return;
-        }
-        if (signInEmail.indexOf("@") <= 0) {
-            alert("邮箱格式有误！");
-            return;
-        }
+<!--<script>-->
+<!--function signInCheck() {-->
+<!--var signInEmail = $("#signinEmail").val();-->
+<!--var signInPassword = $("#signinPassword").val();-->
+<!--if (signInEmail === "" || signInPassword === "") {-->
+<!--alert("邮箱/密码不能为空！");-->
+<!--return;-->
+<!--}-->
+<!--if (signInEmail.indexOf("@") <= 0) {-->
+<!--alert("邮箱格式有误！");-->
+<!--return;-->
+<!--}-->
 
-        // Encrypt with the public key...
-        var encrypt = new JSEncrypt();
-        encrypt.setPublicKey(
-            "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCP4Jto0eLeFNSD/VScEEL4UdDag9cZNBjWfH3X" +
-            "5uRyU0p24hSOWSOVsjIbKcKCaUN58BrKEyOMEqHoaFRLTuo0/eKjyl9tGUhQWQykJg3UBtgxbD5Y" +
-            "N/GPmN4T7YqRDfLzd73j2ZVf9dTwhVnOPYl+DiyOzGV3wgnIEY6xXgxBcwIDAQAB");
+<!--// Encrypt with the public key...-->
+<!--var encrypt = new JSEncrypt();-->
+<!--encrypt.setPublicKey(-->
+<!--"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCP4Jto0eLeFNSD/VScEEL4UdDag9cZNBjWfH3X" +-->
+<!--"5uRyU0p24hSOWSOVsjIbKcKCaUN58BrKEyOMEqHoaFRLTuo0/eKjyl9tGUhQWQykJg3UBtgxbD5Y" +-->
+<!--"N/GPmN4T7YqRDfLzd73j2ZVf9dTwhVnOPYl+DiyOzGV3wgnIEY6xXgxBcwIDAQAB");-->
 
-        $.post("signInCheck.json",
-            {
-                signInEmail: encrypt.encrypt(signInEmail),
-                signInPassword: encrypt.encrypt(signInPassword)
-            },
-            function (data) {
-                var obj = $.parseJSON(data);
-                if (obj.respCode === "1000") {
-                    window.location.href = "index.html";
-                }
-                else {
-                    alert(obj.respMsg);
-                }
-            }
-        )
-    }
+<!--$.post("signInCheck.json",-->
+<!--{-->
+<!--signInEmail: encrypt.encrypt(signInEmail),-->
+<!--signInPassword: encrypt.encrypt(signInPassword)-->
+<!--},-->
+<!--function (data) {-->
+<!--var obj = $.parseJSON(data);-->
+<!--if (obj.respCode === "1000") {-->
+<!--window.location.href = "index.html";-->
+<!--}-->
+<!--else {-->
+<!--alert(obj.respMsg);-->
+<!--}-->
+<!--}-->
+<!--)-->
+<!--}-->
 
-    function signUpCheck() {
-        var signUpEmail = $("#signupEmail").val();
-        var signUpPassword1 = $("#signupPassword1").val();
-        var signUpPassword2 = $("#signupPassword2").val();
-        var signUpVerifyCode = $("#signupVerifycode").val();
-        if (signUpEmail === "" || signUpPassword1 === "" || signUpPassword2 === "" || signUpVerifyCode === "") {
-            alert("邮箱/密码/验证码不能为空！");
-            return;
-        }
-        if (signUpEmail.indexOf("@") <= 0) {
-            alert("邮箱格式有误！");
-            return;
-        }
-        if (signUpPassword1 !== signUpPassword2) {
-            alert("两次输入密码不一致！");
-            return;
-        }
+<!--function signUpCheck() {-->
+<!--var signUpEmail = $("#signupEmail").val();-->
+<!--var signUpPassword1 = $("#signupPassword1").val();-->
+<!--var signUpPassword2 = $("#signupPassword2").val();-->
+<!--var signUpVerifyCode = $("#signupVerifycode").val();-->
+<!--if (signUpEmail === "" || signUpPassword1 === "" || signUpPassword2 === "" || signUpVerifyCode === "") {-->
+<!--alert("邮箱/密码/验证码不能为空！");-->
+<!--return;-->
+<!--}-->
+<!--if (signUpEmail.indexOf("@") <= 0) {-->
+<!--alert("邮箱格式有误！");-->
+<!--return;-->
+<!--}-->
+<!--if (signUpPassword1 !== signUpPassword2) {-->
+<!--alert("两次输入密码不一致！");-->
+<!--return;-->
+<!--}-->
 
-        var encrypt = new JSEncrypt();
-        encrypt.setPublicKey(
-            "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCP4Jto0eLeFNSD/VScEEL4UdDag9cZNBjWfH3X" +
-            "5uRyU0p24hSOWSOVsjIbKcKCaUN58BrKEyOMEqHoaFRLTuo0/eKjyl9tGUhQWQykJg3UBtgxbD5Y" +
-            "N/GPmN4T7YqRDfLzd73j2ZVf9dTwhVnOPYl+DiyOzGV3wgnIEY6xXgxBcwIDAQAB");
+<!--var encrypt = new JSEncrypt();-->
+<!--encrypt.setPublicKey(-->
+<!--"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCP4Jto0eLeFNSD/VScEEL4UdDag9cZNBjWfH3X" +-->
+<!--"5uRyU0p24hSOWSOVsjIbKcKCaUN58BrKEyOMEqHoaFRLTuo0/eKjyl9tGUhQWQykJg3UBtgxbD5Y" +-->
+<!--"N/GPmN4T7YqRDfLzd73j2ZVf9dTwhVnOPYl+DiyOzGV3wgnIEY6xXgxBcwIDAQAB");-->
 
-        $.post("signUpCheck.json",
-            {
-                signUpEmail: encrypt.encrypt(signUpEmail),
-                signUpPassword1: encrypt.encrypt(signUpPassword1),
-                signUpPassword2: encrypt.encrypt(signUpPassword2),
-                signUpVerifyCode: signUpVerifyCode
-            },
-            function (data) {
-                var obj = $.parseJSON(data);
-                if (obj.respCode === "1000") {
-                    window.location.href = "index.html";
-                }
-                else {
-                    alert(obj.respMsg);
-                }
-            }
-        )
-    }
+<!--$.post("signUpCheck.json",-->
+<!--{-->
+<!--signUpEmail: encrypt.encrypt(signUpEmail),-->
+<!--signUpPassword1: encrypt.encrypt(signUpPassword1),-->
+<!--signUpPassword2: encrypt.encrypt(signUpPassword2),-->
+<!--signUpVerifyCode: signUpVerifyCode-->
+<!--},-->
+<!--function (data) {-->
+<!--var obj = $.parseJSON(data);-->
+<!--if (obj.respCode === "1000") {-->
+<!--window.location.href = "index.html";-->
+<!--}-->
+<!--else {-->
+<!--alert(obj.respMsg);-->
+<!--}-->
+<!--}-->
+<!--)-->
+<!--}-->
 
-    function changeVerifyCode() {
-        $.ajax({
-            type: "post",
-            url: "changeVerifyCode.json",
-            data: "",
-            async: false,
-            success: function (data) {
-                var obj = $.parseJSON(data);
-                if (obj.respCode === "1000") {
-                    document.getElementById('verifyCode').src = './static/verifyCode.jpg?' + Math.random();
-                }
-                else {
-                    alert(obj.respMsg);
-                }
-            }
-        });
-    }
-</script>
-</body>
-</html>
+<!--function changeVerifyCode() {-->
+<!--$.ajax({-->
+<!--type: "post",-->
+<!--url: "changeVerifyCode.json",-->
+<!--data: "",-->
+<!--async: false,-->
+<!--success: function (data) {-->
+<!--var obj = $.parseJSON(data);-->
+<!--if (obj.respCode === "1000") {-->
+<!--document.getElementById('verifyCode').src = './static/verifyCode.jpg?' + Math.random();-->
+<!--}-->
+<!--else {-->
+<!--alert(obj.respMsg);-->
+<!--}-->
+<!--}-->
+<!--});-->
+<!--}-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

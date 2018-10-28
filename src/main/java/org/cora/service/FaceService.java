@@ -135,7 +135,8 @@ public class FaceService {
     public JSONObject compare(MultipartFile[] files, HttpServletRequest request, HttpServletResponse response) {
         try {
             String fullPath1 = FileUtils.saveFile(files[0], "img/faceVerify1.jpg", request);
-            String fullPath2 = FileUtils.saveFile(files[1], "img/faceVerify2.jpg", request);
+            String fullPath2 = FileUtils.saveFile(files[1], "img/faceVerify2.jpg", request,
+                    request.getSession().getId().concat("_.").concat(ImageUtils.DEFAULT_IMAGE_FORMAT));
             File f1 = new File(fullPath1);
             File f2 = new File(fullPath2);
 

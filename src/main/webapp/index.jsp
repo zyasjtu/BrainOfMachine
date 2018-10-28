@@ -1,5 +1,8 @@
 <html>
 <body>
-<h2>BrainOfMachine OK!</h2>
+<h2>Loading...</h2>
 </body>
+<script>
+    window.location.href = "./html/index.html";
+</script>
 </html>
