@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * @author Colin
@@ -31,21 +32,7 @@ public class FileUtils {
     public static String saveFile(MultipartFile file, String defaultFileRelativePath,
                                   HttpServletRequest request) throws IOException {
         String bathPath = request.getSession().getServletContext().getRealPath("/");
-        String fileName = request.getSession().getId() + "." + ImageUtils.DEFAULT_IMAGE_FORMAT;
-        if (file.isEmpty()) {
-            File f = new File(bathPath + defaultFileRelativePath);
-            try (FileInputStream inputStream = new FileInputStream(f)) {
-                file = new MockMultipartFile(f.getName(), inputStream);
-            }
-        }
-        String fullPath = bathPath + "upload/" + fileName;
-        FileUtils.saveFile(file, fullPath);
-        return fullPath;
-    }
-
-    public static String saveFile(MultipartFile file, String defaultFileRelativePath,
-                                  HttpServletRequest request, String fileName) throws IOException {
-        String bathPath = request.getSession().getServletContext().getRealPath("/");
+        String fileName = UUID.randomUUID().toString() + "." + ImageUtils.DEFAULT_IMAGE_FORMAT;
         if (file.isEmpty()) {
             File f = new File(bathPath + defaultFileRelativePath);
             try (FileInputStream inputStream = new FileInputStream(f)) {
