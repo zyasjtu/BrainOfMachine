@@ -1,9 +1,9 @@
-//package org.cora.controller;
+//package org.cora.brainofmachine.controller;
 //
 //import com.alibaba.fastjson.JSON;
-//import org.cora.constant.ResponseJson;
-//import org.cora.form.UserForm;
-//import org.cora.service.UserService;
+//import org.cora.brainofmachine.constant.ResponseJson;
+//import org.cora.brainofmachine.form.UserForm;
+//import org.cora.brainofmachine.service.UserService;
 //import org.cora.util.ResponseUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.validation.BindingResult;

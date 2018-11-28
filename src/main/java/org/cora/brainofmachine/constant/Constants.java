@@ -1,4 +1,4 @@
-package org.cora.constant;
+package org.cora.brainofmachine.constant;
 
 /**
  * @author Colin

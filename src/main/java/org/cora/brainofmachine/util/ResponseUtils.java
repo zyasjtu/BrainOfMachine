@@ -1,7 +1,7 @@
-package org.cora.util;
+package org.cora.brainofmachine.util;
 
 import org.apache.commons.lang3.StringUtils;
-import org.cora.constant.ResponseJson;
+import org.cora.brainofmachine.constant.ResponseJson;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 

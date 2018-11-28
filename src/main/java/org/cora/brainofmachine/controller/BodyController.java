@@ -1,6 +1,6 @@
-package org.cora.controller;
+package org.cora.brainofmachine.controller;
 
-import org.cora.service.BodyService;
+import org.cora.brainofmachine.service.BodyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

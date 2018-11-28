@@ -1,15 +1,15 @@
-package org.cora.service;
+package org.cora.brainofmachine.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.cora.constant.FaceApiConstants;
-import org.cora.constant.ResponseJson;
-import org.cora.util.FaceApiUtils;
-import org.cora.util.FileUtils;
-import org.cora.util.ImageUtils;
+import org.cora.brainofmachine.constant.FaceApiConstants;
+import org.cora.brainofmachine.constant.ResponseJson;
+import org.cora.brainofmachine.util.FaceApiUtils;
+import org.cora.brainofmachine.util.FileUtils;
+import org.cora.brainofmachine.util.ImageUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

@@ -1,4 +1,4 @@
-package org.cora.advice;
+package org.cora.brainofmachine.advice;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

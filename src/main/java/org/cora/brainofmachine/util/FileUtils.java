@@ -1,6 +1,6 @@
-package org.cora.util;
+package org.cora.brainofmachine.util;
 
-import org.cora.constant.Constants;
+import org.cora.brainofmachine.constant.Constants;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 

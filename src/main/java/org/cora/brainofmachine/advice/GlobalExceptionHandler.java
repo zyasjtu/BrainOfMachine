@@ -1,7 +1,7 @@
-package org.cora.advice;
+package org.cora.brainofmachine.advice;
 
 import org.apache.log4j.Logger;
-import org.cora.constant.ResponseJson;
+import org.cora.brainofmachine.constant.ResponseJson;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

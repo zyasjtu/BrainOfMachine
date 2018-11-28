@@ -1,4 +1,4 @@
-package org.cora.util;
+package org.cora.brainofmachine.util;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

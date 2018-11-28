@@ -1,9 +1,9 @@
-//package org.cora.service;
+//package org.cora.brainofmachine.service;
 //
 //import com.alibaba.fastjson.JSONObject;
-//import org.cora.dao.UserDao;
-//import org.cora.form.UserForm;
-//import org.cora.model.User;
+//import org.cora.brainofmachine.dao.UserDao;
+//import org.cora.brainofmachine.form.UserForm;
+//import org.cora.brainofmachine.model.User;
 //import org.springframework.beans.BeanUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@
 //
 //import java.util.Date;
 //
-//import static org.cora.constant.ResponseJson.EMPTY;
-//import static org.cora.constant.ResponseJson.FAIL;
-//import static org.cora.constant.ResponseJson.SUCCESS;
+//import static org.cora.brainofmachine.constant.ResponseJson.EMPTY;
+//import static org.cora.brainofmachine.constant.ResponseJson.FAIL;
+//import static org.cora.brainofmachine.constant.ResponseJson.SUCCESS;
 //
 ///**
 // * @author Colin

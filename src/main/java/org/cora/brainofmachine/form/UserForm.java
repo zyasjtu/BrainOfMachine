@@ -1,7 +1,7 @@
-package org.cora.form;
+package org.cora.brainofmachine.form;
 
 import lombok.Data;
-import org.cora.constant.Constants;
+import org.cora.brainofmachine.constant.Constants;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**

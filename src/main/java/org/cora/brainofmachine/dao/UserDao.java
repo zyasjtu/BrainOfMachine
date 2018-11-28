@@ -1,6 +1,6 @@
-//package org.cora.dao;
+//package org.cora.brainofmachine.dao;
 //
-//import org.cora.model.User;
+//import org.cora.brainofmachine.model.User;
 //import org.springframework.stereotype.Repository;
 //
 ///**

@@ -1,4 +1,4 @@
-package org.cora.model;
+package org.cora.brainofmachine.model;
 
 import lombok.Data;
 
