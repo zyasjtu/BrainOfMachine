@@ -66,6 +66,7 @@ public class VehicleService {
                 }
 
                 graphics.drawRect(xMin, yMin, xMax - xMin, yMax - yMin);
+                graphics.setFont(new Font("宋体", Font.BOLD, 20));
                 graphics.drawString(number, xMin, yMin - 5);
             }
 
